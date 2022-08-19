@@ -1,0 +1,28 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Mapa do Condomínio</title>
+{% endblock %}
+
+{% block conteudo %}
+<article class="site-content">
+    <div class="container">
+        <br>
+        <h3 align="center">Mapa do Condomínio</h3>
+        <hr>
+        {% if request.user.is_authenticated %}
+        <br>
+        <img src="{% static 'img/mapacondominio.png' %}" width="1300" height="720">
+        {% else %}
+        <br>
+        <h4>  Faça <a href="{% url 'login' %}">login</a> para obter acesso.</h4>
+        {% endif %}
+        <br>
+    </div>
+</article>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

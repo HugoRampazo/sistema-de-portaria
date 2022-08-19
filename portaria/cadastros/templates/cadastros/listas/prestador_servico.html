@@ -1,0 +1,116 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+<title>Lista de prestadores de serviços</title>
+{% endblock %}
+
+{% block conteudo %}
+
+    {% if request.user.is_authenticated %}
+
+    <br>
+
+    <h3 align="center">Lista de Prestadores de Serviços cadastrados</h3>
+
+    <hr>
+
+    <div align="right" class="col-md-10 mx-auto">
+        <a href="{% url 'cadastrar-prestador' %}" class="btn btn-primary">Cadastrar Prestador de Serviço</a>
+    </div>
+
+    <div class="table-responsive">
+        <div class="col-md-10 mx-auto">
+
+            <table class="table table-striped mt-3" id="tabela-listar4">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF ou RG</th>
+                        <th>Data de entrada / Horário</th>
+                        <th>Placa do veículo</th>
+                        <th>Casa</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for object in object_list %}
+
+                    <tr>
+                        <td> {{ object.nome_completo }}</td>
+                        <td> {{ object.identidade }}</td>
+                        <td> {{ object.data_de_entrada }}</td>
+                        <td> {{ object.placa_veiculo }}</td>
+                        <td> {{ object.casa }}</td>
+                        <td>
+                            <a href="{% url 'editar-prestador' object.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <a href="{% url 'excluir-prestador' object.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="3">Nenhum prestador de serviço registrado.</td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+
+    {% else %}
+    <br>
+    <h4 align="center">  Faça <a href="{% url 'login' %}">login</a> para obter acesso.</h4>
+    {% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+        $(document).ready(function () {
+            $('#tabela-listar4').DataTable({
+            responsive: true,
+            // "bSort": false,
+            "aaSorting": [],
+            "pageLength": 25,
+            "language": {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                "infoFiltered": "(filtrado de _MAX_ registros no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "A carregar dados...",
+                "processing": "A processar...",
+                "search": "Procurar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": ordem crescente",
+                    "sortDescending": ": ordem decrescente"
+                }
+            }
+        });
+        });
+</script>
+
+{% endblock %}

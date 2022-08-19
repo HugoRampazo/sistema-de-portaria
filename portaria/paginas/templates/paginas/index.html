@@ -1,0 +1,47 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>HR&MB ::: Pág Inicial</title>
+{% endblock %}
+
+{% block conteudo %}
+<article class="site-content">
+    <div class="container">
+        <br>
+        <h3 align="center">Sistema de Portaria HR&MB</h3>
+        <hr>
+        <br>
+        {% if request.user.is_authenticated %}
+        <h4 align="center">Como utilizar o sistema</h4>
+        <br>
+        <p> -> Para cadastrar uma nova casa, acesse o menu "Casas" e clique no botão "Cadastrar Casa".</p>
+        <p> -> Para cadastrar um novo morador, acesse o menu "Moradores" e clique no botão "Cadastrar Morador".</p>
+        <p> -> Para cadastrar e dar entrada de visitantes, acesse o menu "Visitantes" e clique no botão "Cadastrar Visitante".</p>
+        <p> -> Para cadastrar e dar entrada de prestadores de serviços, acesse o menu "Prestadores de serviços" e clique no botão "Cadastrar Prestador de Serviço".</p>
+        <br>
+        <p> -> Para editar a entrada de um visitante cadastrado, acesse o menu "Visitantes" e procure pelo nome, após isso é só clicar em: "<i class="fa fa-pencil" aria-hidden="true"></i>".</p>
+        <p> -> Para excluir um visitante cadastrado, acesse o menu "Visitantes" e procure pelo nome, após isso é só clicar em: "<i class="fa fa-trash" aria-hidden="true"></i>".</p>
+        <br>
+        <p> -> Para editar a entrada de um prestador de serviço cadastrado, acesse o menu "Prestadores de serviços" e procure pelo nome, após isso é só clicar em: "<i class="fa fa-pencil" aria-hidden="true"></i>".</p>
+        <p> -> Para excluir um prestador de serviço cadastrado, acesse o menu "Prestadores de serviços" e procure pelo nome, após isso é só clicar em: "<i class="fa fa-trash" aria-hidden="true"></i>".</p>
+        <br>
+        <p> -> Para editar um morador cadastrado, acesse o menu "Moradores" e procure pelo nome, após isso é só clicar em: "<i class="fa fa-pencil" aria-hidden="true"></i>".</p>
+        <p> -> Para excluir um morador cadastrado, acesse o menu "Moradores" e procure pelo nome, após isso é só clicar em: "<i class="fa fa-trash" aria-hidden="true"></i>".</p>
+        <br><br><br>
+        <h4 align="center">Suporte/Ajuda 24hrs</h4>
+        <br>
+        <p align="center">Para esclarecimento de dúvidas/treinamentos: (14) 99746-XXXX Miucha</p>
+        <p align="center">Para problemas relacionado ao sistema: (14) 99807-XXXX Hugo</p>
+        {% else %}
+        <h4 align="left">  Faça <a href="{% url 'login' %}">login</a> para obter acesso.</h4>
+        {% endif %}
+        <!-- <br>
+        <img align="center" src="{% static 'img/portaria.jpg' %}" width="100%" height="400"> -->
+    </div>
+</article>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

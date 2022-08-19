@@ -4,6 +4,7 @@ Esse projeto/sistema web foi criado para ser utilizado em portarias de condomín
 # como baixar o projeto
 Abra o CMD e digite:
 cd desktop
+
 git clone https://github.com/HugoRampazo/sistema-de-portaria.git
 
 # como visualizar o projeto

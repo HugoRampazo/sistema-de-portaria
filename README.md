@@ -1,6 +1,11 @@
 # sistema-de-portaria
 Esse projeto/sistema web foi criado para ser utilizado em portarias de condomínio, auxiliando no seu controle de acesso.
 
+# como baixar o projeto
+Abra o CMD:
+cd desktop
+git clone https://github.com/HugoRampazo/sistema-de-portaria.git
+
 # como visualizar o projeto
 1- Vamos criar o ambiente virtual, abra o CMD:
 pip install --upgrade virtualenv

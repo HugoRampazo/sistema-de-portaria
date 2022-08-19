@@ -34,12 +34,6 @@ pip install -r requirements.txt
 
 3- Nessa etapa vamos criar um super usuário para conseguir acessar o sistema, continuando no CMD:
 
-cd desktop
-
-cd sistema-de-portaria
-
-cd portaria
-
 python manage.py createsuperuser
 
     (Informe um usuário, email e senha de sua escolha)
